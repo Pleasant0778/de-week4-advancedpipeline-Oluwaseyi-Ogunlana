@@ -8,6 +8,7 @@ logging.basicConfig(level=logging.INFO, format= "%(asctime)s - %(levelname)s : %
 
 
 class DataAnalyzer:
+  """The class Analyzer that generate a summary for the api data that has been converted to dataframe"""
   
   
   def analyze(self, df: pd.DataFrame) -> Dict[str, Dict[str, Any]]:

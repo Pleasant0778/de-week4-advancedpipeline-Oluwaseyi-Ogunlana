@@ -9,6 +9,7 @@ logging.basicConfig(level=logging.INFO, format= "%(asctime)s - %(levelname)s : %
 
 
 class DataEnricher:
+  """the enrisher class to clean and enrich the user and product dataframe"""
   
   def __innit__(self):
     self.missing_user_products = pd.DataFrame

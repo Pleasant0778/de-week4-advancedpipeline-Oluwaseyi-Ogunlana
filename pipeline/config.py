@@ -8,13 +8,14 @@ logging.basicConfig(level=logging.INFO, format= "%(asctime)s - %(levelname)s : %
 
 
 
+
+"""
 config_write = cp.ConfigParser()
 
 config_write['API_ENDPOINT'] = {}
 
 config_write['API_ENDPOINT']['limit'] = '1' 
 config_write['API_ENDPOINT']['url'] = 'https://fakestoreapi.com/'
-"""
 with open('pipeline.cfg', 'w') as config_file:
   config_write.write(config_file)
 
@@ -29,7 +30,9 @@ config_read['API_ENDPOINT']['limit']
 
 
 class ConfigManager:
+  """A configg manager class that reads the configuration file"""
 
+  #a class variacle to instantiate the config parser
   config = cp.ConfigParser()
 
   def __init__(self, config_path: str,section: str):
@@ -47,6 +50,7 @@ class ConfigManager:
     return self._limit
 
   def read_api_config(self) -> Dict[str, Any]:
+    """The method that read variables from the config files"""
     ConfigManager.config.read(self.config_path)
     if self.section not in ConfigManager.config:
         raise ValueError(f"{self.section} section not found in config.ini")
