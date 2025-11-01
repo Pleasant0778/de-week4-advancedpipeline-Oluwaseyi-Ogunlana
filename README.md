@@ -24,10 +24,10 @@ API ConfigFile → Api Client → Data Enricher → Data Analyzer
 - Supports pagination and graceful error handling using try-except blocks.
 
 ### 3. **Data Enricher**
-- convert extracted product and user data to a dataframe.
+- Convert extracted product and user data to a dataframe.
 - Joins product and user dataframe on `id`.
 - Checks if there are product id that is not in the user dataframe.
-- Also unpack the columns that are nested in a dictionary
+- Also unpack the columns that are nested in a dictionary (using apply and lambda)
 - Adds a new columns revenue (`price * count`).
 
 ### 4. **Data Analyzer**
