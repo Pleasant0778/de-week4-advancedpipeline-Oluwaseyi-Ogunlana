@@ -1,0 +1,28 @@
+
+import requests
+import pytest
+
+@pytest.mark.parametrize("expected_action", [
+  ({'total_revenue': {'david morrison': 5775.7,
+  'derek powell': 278000.0,
+  'don romer': 6875.7,
+  'john doe': 13194.0,
+  'kevin ryan': 27995.0},
+ 'product_count': {'david morrison': 1,
+  'derek powell': 1,
+  'don romer': 1,
+  'john doe': 1,
+  'kevin ryan': 1},
+ 'average_price': {'david morrison': 22.3,
+  'derek powell': 695.0,
+  'don romer': 15.99,
+  'john doe': 109.95,
+  'kevin ryan': 55.99}}) 
+]) 
+def test_data_analyzer(products_user_df,omnicart_classes,expected_action):
+    data_enr = omnicart_classes[1]
+    data_ana =  omnicart_classes[2]
+    merged_df = data_enr.data_enrich(products_user_df[0], products_user_df[1])
+    analyzed_df =  data_ana.analyze(merged_df)
+
+    assert analyzed_df == expected_action
