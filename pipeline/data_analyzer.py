@@ -20,5 +20,5 @@ class DataAnalyzer:
     )
     
     logging.info('data analyzed and saved as seller_performance_report')
-    return agg_df.to_dict() #agg_df.to_json('seller_performance_report.json')#agg_df.to_dict()
+    return agg_df.to_json('seller_performance_report.json') #agg_df.to_dict() #agg_df.to_json('seller_performance_report.json')#agg_df.to_dict()
     
